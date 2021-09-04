@@ -1,19 +1,19 @@
-# fancy-nodes
+# fancy-node
 Access or create DOM nodes in style.
 
 ## Features
 This package lets you conveniently access existing and create new DOM nodes. It works with either the DOM in a web browser or [jsdom](https://www.npmjs.com/package/jsdom). 
 
 ## Installation
-You can add `fancy-nodes` to your project with:
+You can add `fancy-node` to your project with:
 ```bash
-npm i fancy-nodes
+npm i fancy-node
 ```
 
 ## Usage
 ```javascript
-import fn from 'fancy-nodes'; 
-// alternatively: const fn = require('fancy-nodes')
+import fn from 'fancy-node'; 
+// alternatively: const fn = require('fancy-node')
 ```
 
 ### Building elements
@@ -132,7 +132,7 @@ An array of class names that will be added to `element.classList`. `attributes.c
 This needs to be set to `true` for all SVG elements (`svg`, `path`, `circle`, etc.).
 
 ### Retrieving elements
-Wrapping `document.querySelector()` and `document.querySelectorAll()` into `$()` or `$$()` is nothing new, the versions in `fancy-nodes` are borrowed from [Lea Verou](https://lea.verou.me/2015/04/jquery-considered-harmful/). Here they live under the namespace `fn` or whatever name you have chosen upon import.
+Wrapping `document.querySelector()` and `document.querySelectorAll()` into `$()` or `$$()` is nothing new, the versions in `fancy-node` are borrowed from [Lea Verou](https://lea.verou.me/2015/04/jquery-considered-harmful/). Here they live under the namespace `fn` or whatever name you have chosen upon import.
 
 The first argument for both functions, `$()` and `$$()` is a CSS selector, the optional second argument a container element.
 ```javascript

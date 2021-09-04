@@ -1,6 +1,6 @@
 {
   "name": "fancy-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create and retrieve DOM nodes conveniently",
   "scripts": {
     "test": "node tests/index.js"
