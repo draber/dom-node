@@ -1,0 +1,24 @@
+{
+  "name": "fancy-node",
+  "version": "1.0.0",
+  "description": "Create and retrieve DOM nodes conveniently",
+  "scripts": {
+    "test": "node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/draber/fancy-node.git"
+  },
+  "author": "Dieter Raber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/draber/fancy-node/issues"
+  },
+  "homepage": "https://github.com/draber/fancy-node#readme",
+  "devDependencies": {
+    "a-nicer-console": "^1.0.0"
+  },
+  "dependencies": {
+    "global-jsdom": "^8.2.0"
+  }
+}
