@@ -76,11 +76,11 @@ Example:
 attributes: {
     id: 'foo',
     href: '#bar',
-    src: '/foo/bar/', // as if that combination made any sense...
+    src: '/foo/bar/', // as if this combination would make any sense, whatsoever...
     disabled: true // for boolean attributes
 }
 ```
-When assigning properties or attributes to an element created with `document.createElement`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `class` and `className` etc. work equally accepted.
+When assigning properties or attributes to an element created with `document.createElement`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `class` and `className` etc. are equally accepted.
 
 _Important note: jsdom doesn't support some attributes such as `contentEditable`. This is something you need to take into account when using this package to build HTML on the server!_
 
