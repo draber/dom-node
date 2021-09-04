@@ -17,7 +17,7 @@ import fn from 'fancy-nodes';
 ```
 
 ### Building elements
-The basic syntax is `fn.` followed by the type of element you wish to create:
+The basic syntax is `fn.<any>` where `<any>` is the type of element you wish to create:
 ```javascript
 const div1 = fn.div();
 // -> <div></div>
