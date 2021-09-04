@@ -177,6 +177,12 @@ fn.toNode([
 // -> DOMFragment containing all the above 
 ```
 
+#### `fn.empty()`
+This removes all content from an element without the shortcomings of `element.innerHTML = ''`.
+```javascript
+const elem = fn.empty(fn.$('.bar'));
+```
+
 #### `fn.waitFor()`
 This waits for an element to be present in the DOM and takes the same arguments as `fn.$()`. It returns a Promise with the element as its value.
 ```javascript
