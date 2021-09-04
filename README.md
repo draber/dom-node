@@ -103,7 +103,7 @@ data: {
 }
 ```
 ##### `aria`
-Before you set anything `aria`-related consider the [first rule of ARIA use](https://www.w3.org/TR/using-aria/#firstrule); there probably already exists an [HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for your particular purpose.
+Before you set anything ARIA-related consider the [first rule of ARIA use](https://www.w3.org/TR/using-aria/#firstrule); there probably already exists an [HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for your particular purpose.
 
 With that being said, you can set ARIA rules like this:
 ```javascript
@@ -113,7 +113,7 @@ aria: {
     label: 'Close'
 }
 ```
-All rules but `role` will be prefixed by `aria-`.
+All rules but `role` will be prefixed with `aria-`.
 
 ##### `events`
 Key-value pairs of events and their associated functions:
