@@ -76,11 +76,11 @@ Example:
 attributes: {
     id: 'foo',
     href: '#bar',
-    src: '/foo/bar/', // as if this combination would make any sense, whatsoever...
+    src: './foo/bar.png', // as if this combination would make any sense, whatsoever...
     disabled: true // for boolean attributes
 }
 ```
-When assigning properties or attributes to an element created with `document.createElement`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `class` and `className` etc. are equally accepted.
+When assigning properties or attributes to an element created with `document.createElement()`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `class` and `className` etc. are equally accepted.
 
 _Important note: jsdom doesn't support some attributes such as `contentEditable`. This is something you need to take into account when using this package to build HTML on the server!_
 
@@ -158,10 +158,10 @@ fn.toNode('some random text')
 fn.toNode(fn.div({
     content: fn.span()
 }))
-// -> '<div><span></span></div>'
+// -> Element '<div><span></span></div>'
 
 fn.toNode('<div><span></span></div>')
-// -> '<div><span></span></div>'
+// -> Element '<div><span></span></div>'
 
 fn.toNode([
     'another random text',
@@ -174,7 +174,7 @@ fn.toNode([
         isSvg: true
     })
 ])
-// -> all the above wrapped into a DOMFragment
+// -> DOMFragment containing all the above wrapped into 
 ```
 
 #### `fn.waitFor()`
