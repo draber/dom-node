@@ -153,15 +153,15 @@ This is used under the hood to power the `content` argument but is also publicly
 To resuse the example from [`content`](#content), this would be:
 ```javascript
 fn.toNode('some random text')
-// -> textNode
+// -> TextNode
 
 fn.toNode(fn.div({
     content: fn.span()
 }))
-// -> Element '<div><span></span></div>'
+// -> HTMLElement '<div><span></span></div>'
 
 fn.toNode('<div><span></span></div>')
-// -> Element '<div><span></span></div>'
+// -> HTMLElement '<div><span></span></div>'
 
 fn.toNode([
     'another random text',
@@ -174,14 +174,14 @@ fn.toNode([
         isSvg: true
     })
 ])
-// -> DOMFragment containing all the above wrapped into 
+// -> DOMFragment containing all the above 
 ```
 
 #### `fn.waitFor()`
-This waits for an element to be present in the DOM and takes the same arguments as `fn.$()`. Its return value is a Promise.
+This waits for an element to be present in the DOM and takes the same arguments as `fn.$()`. It returns a Promise with the element as its value.
 ```javascript
 const ul = fn.$('ul');
-fn.waitFor('li.bar', ul) // container is here also optional
+fn.waitFor('li.bar', ul) // container is optional
     .then(element => {
         magic(element);
     })
