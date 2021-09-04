@@ -145,7 +145,7 @@ const firstLiElement = fn.$('li', list);
 const allLiElements = fn.$$('li', list);
 // -> all <li> elements inside this <ul>
 ```
-### Helper functions
+### Other functions
 
 #### `fn.toNode()`
 This is used under the hood to power the `content` argument but is also publicly accessible. It accepts the same input as `content` and returns either an `HTMLElement` or a `DOMFragment`, either way a single piece.
