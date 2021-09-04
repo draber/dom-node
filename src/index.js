@@ -1,8 +1,8 @@
 /**
- *  Spelling Bee Assistant is an add-on for Spelling Bee, the New York Times’ popular word puzzle
+ *  Access or create DOM nodes in style.
  *
  *  Copyright (C) 2020  Dieter Raber
- *  https://www.gnu.org/licenses/gpl-3.0.en.html
+ *  https://opensource.org/licenses/MIT
  */
 
 /**
@@ -226,30 +226,7 @@ const create = function ({
 };
 
 /**
- * Dispatcher for `create()`, and all functions within {fn}
- * Examples (for $, $$ see docs on the functions):
- * @example
- * el.div() returns a div element, where `div` can be any element
- * el.a({
- *     content: Element|DocumentFragment|Iterable|String|HTMLCode|SVGCode,
- *     attributes: {
- *         href: 'http://example.com'
- *     },
- *     style: {
- *         color: 'red'
- *     },
- *     data: {
- *         foo: 'bar'
- *     },
- *     events: {
- *         click: () => alert('quux')
- *     },
- *     classNames: [
- *         'boom'
- *     ],
- *     isSvg: true|false (default)
- * })
- * returns the element `<a href="http://example.com" style="color: red" data-foo="bar" class="boom">My link</a>` that issues an alert when clicked
+ * Dispatcher for `create()`, and all functions within {obj}
  */
 module.exports = new Proxy(obj, {
     /**
