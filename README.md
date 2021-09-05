@@ -12,9 +12,14 @@ npm i fancy-node
 
 ## Usage
 ```javascript
+// client-side
 import fn from 'fancy-node'; 
-// alternatively: const fn = require('fancy-node')
+
+// server-side
+import fn from 'fancy-node/server.js';
+// alternatively: const fn = require('fancy-node/server')
 ```
+`fancy-node/server.js` sets up a `jsdom` environment with `require('global-jsdom/register');`. Other than that it's identical with the client-side version.  
 
 ### Building elements
 The basic syntax is `fn.<any>()` where `<any>` is the type of element you wish to create:

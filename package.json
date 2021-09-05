@@ -1,10 +1,11 @@
 {
   "name": "fancy-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create and retrieve DOM nodes conveniently",
   "scripts": {
     "test": "node tests/index.js"
   },
+  "main": "src",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/draber/fancy-node.git"
