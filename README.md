@@ -54,7 +54,7 @@ This is, as you would have expected, the content of the element. It can be any o
 - a piece of SVG code - this works only when the code starts with `<svg`!
 - an array with any combination of the above
 ```javascript
-// the example assume fn.div({ content: ... }) as basis
+// the examples assume fn.div({ content: ... }) as basis
 
 content: 'some random text'
 // -> <div>some random text</div>
@@ -69,16 +69,16 @@ content: '<div><span></span></div>'
 
 content: [
     'another random text',
-    fn.span(
+    fn.span({
         attributes: {
             id: 'foo'
-        }
-        content: fn.svg({
-            isSvg: true
+        },
+        content: fn.strong({
+            content: 'some text'
         })
-    )
+    })
 ]
-// -> <div>another random text<span id="foo"><svg ..></svg></span></div>
+// -> <div>another random text<span id="foo"><strong>some text</strong></span></div>
 ```
 
 ##### `attributes`
@@ -86,13 +86,11 @@ Example:
 ```javascript
 attributes: {
     id: 'foo',
-    href: '#bar',
-    src: './foo/bar.png', // as if this combination would make any sense, whatsoever...
     disabled: true // for boolean attributes
 }
-// -> <elem id="foo" href="#bar" src="./foo/bar.png" disabled>
+// -> <div id="foo" disabled>
 ```
-When assigning properties or attributes to an element created with `document.createElement()`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `class` and `className` etc. are equally accepted.
+When assigning properties or attributes to an element created with `document.createElement()`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `tabindex` and `tabIndex` etc. are equally accepted. 
 
 _Important note: [jsdom doesn't support some attributes such as `contentEditable`](https://github.com/jsdom/jsdom/issues/1670). This is something you need to take into account when using this package to build HTML on the server!_
 
@@ -114,10 +112,10 @@ data: {
     foo: 'bar',
     bar: 42
 }
-// -> <div data-foo="bar" data-bar"42">
+// -> <div data-foo="bar" data-bar="42">
 ```
 ##### `aria`
-Before you set anything ARIA-related consider the [first rule of ARIA use](https://www.w3.org/TR/using-aria/#firstrule); there probably already exists an [HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for your particular purpose.
+Before you set anything ARIA-related consider the [first rule of ARIA use](https://www.w3.org/TR/using-aria/#firstrule): there probably already exists an [HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) for your particular purpose.
 
 With that being said, you can set ARIA rules like this:
 ```javascript
@@ -126,7 +124,7 @@ aria: {
     hidden: true, 
     label: 'Close'
 }
-// -> <div role="progessbar" aria-hidden="true" aria-label="Close">
+// -> <div role="progressbar" aria-hidden="true" aria-label="Close">
 ```
 All rules but `role` will be prefixed with `aria-`.
 
@@ -138,19 +136,20 @@ events: {
         magic(evt.target);
     }
 }
-// -> div does something magical when being clicked
+// -> div does something magical when clicked
 ```
 
 ##### `classNames`
-An array of class names that will be added to `element.classList`. `attributes.className` or `attribute.class` for those of you, who can never remember how to do stuff properly, will also work. Admittedly, `className` is a property and not an attribute, but you have to compromise at some point. If that bothers you, use `classNames` instead.
+An array of class names that will be added to `element.classList`. `attributes.className` or `attributes.class` are also supported.
 
 ##### `isSvg`
-This needs to `true` for all SVG elements (`svg`, `path`, `circle`, etc.).
+This needs to be set to `true` for all SVG elements (`svg`, `path`, `circle`, etc.).
 
 ### Retrieving elements
-Wrapping `document.querySelector()` and `document.querySelectorAll()` into `$()` or `$$()` is nothing new, the versions in `fancy-node` are borrowed from [Lea Verou](https://lea.verou.me/2015/04/jquery-considered-harmful/). Here they live under the namespace `fn` or whatever name you have chosen upon import.
+Wrapping `document.querySelector()` and `document.querySelectorAll()` into `$()` or `$$()` is nothing new, the versions in `fancy-node` are borrowed from [Lea Verou](https://lea.verou.me/2015/04/jquery-considered-harmful/). 
 
-The first argument for both functions, `$()` and `$$()` is a CSS selector, the optional second argument a container element.
+The first argument for both functions `fn.$()` and `fn.$$()` is a CSS selector, the optional second argument is a scope element.
+
 ```javascript
 const list = fn.$('ul');
 // -> first <ul>
@@ -164,9 +163,7 @@ const allLiElements = fn.$$('li', list);
 ### Other functions
 
 #### `fn.toNode()`
-This is used under the hood to power the `content` argument but is also publicly accessible. It accepts the same input as `content` and returns either an `HTMLElement` or a `DOMFragment`, either way a single piece.
-
-To resuse the example from [`content`](#content), this would be:
+This is used under the hood to power the `content` argument but is also publicly accessible. It accepts the same input as `content` and returns either an `HTMLElement`, a `TextNode` or a `DocumentFragment`, but either way a single node.
 ```javascript
 fn.toNode('some random text')
 // -> TextNode
@@ -190,21 +187,21 @@ fn.toNode([
         isSvg: true
     })
 ])
-// -> DOMFragment containing all the above 
+// -> DocumentFragment containing all of the above 
 ```
 
 #### `fn.empty()`
-This removes all content from an element without the shortcomings of `element.innerHTML = ''`.
+This removes all content from an element without the shortcomings of `element.innerHTML`.
 ```javascript
 const elem = fn.empty(fn.$('.bar'));
-// -> <elem><x><y><z>text</z></y></x></elem> to <elem></elem>
+// -> convert <elem class="bar"><x><y>some</y></x><z>text</z></elem> to <elem class="bar"></elem>
 ```
 
 #### `fn.waitFor()`
 This waits for an element to be present in the DOM and takes the same arguments as `fn.$()`. It returns a Promise with the element as its value.
 ```javascript
 const ul = fn.$('ul');
-fn.waitFor('li.bar', ul) // container is optional
+fn.waitFor('li.bar', ul) // scope is optional
     .then(element => {
         magic(element);
     })
