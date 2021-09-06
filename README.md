@@ -47,7 +47,7 @@ Options are a nested object with the following keys:
 
 ##### `content`
 This is, as you would have expected, the content of the element. It can be any of the following:
-- text
+- a text string
 - an HTML element with or without sub-elements
 - a SVG element with or without sub-elements
 - a piece of HTML code
@@ -89,7 +89,7 @@ attributes: {
 }
 // -> <div id="foo" disabled>
 ```
-While _attributes_ and _properties_ aren't exactly the same thing `fn` combines them under `attributes`. To avoid confusion around those cases where the name of attributes and properties don't match the following mapping ensures that both versions are equally accepted: 
+While _attributes_ and _properties_ aren't exactly the same thing `fn` combines them under `attributes`. To avoid confusion around those cases where the names of attributes and properties don't match the following mapping ensures that both versions are equally accepted: 
 
 | Attribute         | Property          |
 |:------------------|:------------------|

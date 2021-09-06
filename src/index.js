@@ -61,8 +61,8 @@ const cast = content => {
  */
 const obj = {
     /**
-     * Returns first element that matches CSS selector {selector}.
-     * Querying can optionally be restricted to {container}’s descendants
+     * Returns first element that matches CSS selector `selector`.
+     * Querying can optionally be restricted to `container`’s descendants
      * @param {String} selector
      * @param {HTMLElement} container
      * @return {HTMLElement || null}
@@ -73,8 +73,8 @@ const obj = {
     },
 
     /**
-     * Returns all elements that match CSS selector {selector} as an array.
-     * Querying can optionally be restricted to {container}’s descendants
+     * Returns all elements that match CSS selector `selector` as an array.
+     * Querying can optionally be restricted to `container`’s descendants
      * @param {String} selector
      * @param {HTMLElement} container
      * @return {Array}
