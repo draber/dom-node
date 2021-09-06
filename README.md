@@ -34,16 +34,16 @@ You can use any native HTML or SVG element as a method, in fact, all function ca
 
 #### Options
 Options are a nested object with the following keys:
-| Name         | Type    | Default     |
-|--------------|---------|-------------|
-| `content`    | mixed   | `undefined` |
-| `attributes` | Object  | `{}`        |
-| `style`      | Object  | `{}`        |
-| `data`       | Object  | `{}`        |
-| `aria`       | Object  | `{}`        |
-| `events`     | Object  | `{}`        |
-| `classNames` | Array   | `[]`        |
-| `isSvg`      | Boolean | `false`     |
+| Name         | Type    |Mandatory | Default     |
+|:-------------|:--------|:-------- |:------------|
+| `content`    | mixed   |no        | `undefined` |
+| `attributes` | Object  |no        | `{}`        |
+| `style`      | Object  |no        | `{}`        |
+| `data`       | Object  |no        | `{}`        |
+| `aria`       | Object  |no        | `{}`        |
+| `events`     | Object  |no        | `{}`        |
+| `classNames` | Array   |no        | `[]`        |
+| `isSvg`      | Boolean |on SVG yes| `false`     |
 
 ##### `content`
 This is, as you would have expected, the content of the element. It can be any of the following:
@@ -82,7 +82,6 @@ content: [
 ```
 
 ##### `attributes`
-Example:
 ```javascript
 attributes: {
     id: 'foo',
@@ -90,9 +89,18 @@ attributes: {
 }
 // -> <div id="foo" disabled>
 ```
-When assigning properties or attributes to an element created with `document.createElement()`, we sometimes come across cases not everybody is familiar with. `for` in a `<label>` needs actually to be set as `htmlFor` and `tabindex` needs to be written in camel case. `fn` uses a mapping to automatically fix these issues, so that `for` and `htmlFor`, `tabindex` and `tabIndex` etc. are equally accepted. 
+While _attributes_ and _properties_ aren't exactly the same thing `fn` combines them under `attributes`. To avoid confusion around those cases where the name of attributes and properties don't match the following mapping ensures that both versions are equally accepted: 
 
-_Important note: [jsdom doesn't support some attributes such as `contentEditable`](https://github.com/jsdom/jsdom/issues/1670). This is something you need to take into account when using this package to build HTML on the server!_
+| Attribute         | Property          |
+|:------------------|:------------------|
+| `accesskey`       | `accessKey`       |
+| `class`           | `className`       |
+| `contenteditable` | `contentEditable` |
+| `for`             | `htmlFor`         |
+| `nomodule`        | `noModule`        |
+| `tabindex`        | `tabIndex`        |
+
+_Important note: [jsdom doesn't support some properties such as `contentEditable`](https://github.com/jsdom/jsdom/issues/1670). This is something you need to take into account when using this package to build HTML on the server!_
 
 ##### `style`
 This accepts the same values you would set in `element.style`:
@@ -120,11 +128,11 @@ Before you set anything ARIA-related consider the [first rule of ARIA use](https
 With that being said, you can set ARIA rules like this:
 ```javascript
 aria: {
-    role: 'progressbar', // see above
+    role: 'button', // see above
     hidden: true, 
     label: 'Close'
 }
-// -> <div role="progressbar" aria-hidden="true" aria-label="Close">
+// -> <div role="button" aria-hidden="true" aria-label="Close">
 ```
 All rules but `role` will be prefixed with `aria-`.
 
