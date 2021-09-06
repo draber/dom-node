@@ -2,7 +2,7 @@
 Access or create DOM nodes in style.
 
 ## Features
-This package lets you conveniently access existing and create new DOM nodes. It works with either the DOM in a web browser or [jsdom](https://www.npmjs.com/package/jsdom). 
+This package lets you conveniently access existing and create new DOM nodes. It also implements some interesting helper methods such as `waitFor()`. It works in a web browser as well as on the server-side where it uses [jsdom](https://www.npmjs.com/package/jsdom). 
 
 ## Installation
 You can add `fancy-node` to your project with:
@@ -89,7 +89,9 @@ attributes: {
 }
 // -> <div id="foo" disabled>
 ```
-While _attributes_ and _properties_ aren't exactly the same thing `fn` combines them under `attributes`. To avoid confusion around those cases where the names of attributes and properties don't match the following mapping ensures that both versions are equally accepted: 
+While _attributes_ and _properties_ aren't the same thing `fn` combines them under `attributes`. Attributes and properties are accepted; if both are provided, _property_ takes precedence.
+
+The following mapping lists the ambiguous cases: 
 
 | Attribute         | Property          |
 |:------------------|:------------------|
@@ -100,7 +102,7 @@ While _attributes_ and _properties_ aren't exactly the same thing `fn` combines 
 | `nomodule`        | `noModule`        |
 | `tabindex`        | `tabIndex`        |
 
-_Important note: [jsdom doesn't support some properties such as `contentEditable`](https://github.com/jsdom/jsdom/issues/1670). This is something you need to take into account when using this package to build HTML on the server!_
+_Note: [jsdom doesn't support `contentEditable`](https://github.com/jsdom/jsdom/issues/1670) (and probably other properties). This is something you need to take into account when using this package to build HTML on the server!_
 
 ##### `style`
 This accepts the same values you would set in `element.style`:
@@ -148,7 +150,7 @@ events: {
 ```
 
 ##### `classNames`
-An array of class names that will be added to `element.classList`. `attributes.className` or `attributes.class` are also supported.
+An array of class names that will be added to `element.classList`. `attributes.className` or `attributes.class` are also supported. `classNames` and `attributes.className` or `attributes.class` will both be applied.
 
 ##### `isSvg`
 This needs to be set to `true` for all SVG elements (`svg`, `path`, `circle`, etc.).

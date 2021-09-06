@@ -182,18 +182,22 @@ const create = function ({
         ['contenteditable', 'contentEditable'],
         ['accesskey', 'accessKey']
     ]).forEach((right, wrong) => {
-        if (attributes[wrong]) {
+        if (typeof attributes[right] === 'undefined' && attributes[wrong]) {
             attributes[right] = attributes[wrong];
-            delete attributes[wrong];
         }
+        delete attributes[wrong];
     });
+
     if (attributes.style) {
         const styleAttr = {};
         attributes.style.split(';').forEach(rule => {
             const parts = rule.split(':').map(entry => entry.trim());
             styleAttr[parts[0]] = parts[1];
         })
-        style = {...styleAttr, ...style};
+        style = {
+            ...styleAttr,
+            ...style
+        };
         delete attributes.style
     }
 

@@ -27,7 +27,10 @@ const dummies = {
         })
         svg.append(circle);
         return svg;
-    })()
+    })(),    
+    classNames: ['arrCN_1', 'arrCN_2'],
+    class: 'attrCls_1 attrCls_2',
+    className: 'attrCn_1 attrCn_3'
 }
 
 // test cases
@@ -209,6 +212,60 @@ tests.selectAll = () => {
     return fn.$$('div').length;
 }
 
+/**
+ * @returns {String} <div class="attrCn_1 attrCn_3 arrCN_1 arrCN_2"></div>
+ */
+tests.classNamesAndAttrClassName = () => {
+    return fn.div({
+        classNames: dummies.classNames,
+        attributes: {
+            className: dummies.className
+        } 
+    }).outerHTML;
+}
+
+/**
+ * @returns {String} <label class="attrCls_1 attrCls_2" for="from-for" accesskey="a"></label>
+ */
+tests.ambigiousAttributes = () => {
+    return fn.label({
+        attributes: {
+            class: dummies.class,
+            accesskey: 'a',
+            for: 'from-for'
+        } 
+    }).outerHTML;
+}
+
+/**
+ * @returns {String} <label class="attrCn_1 attrCn_3" accesskey="p" for="from-htmlFor"></label>
+ */
+tests.ambigiousProperties = () => {
+    return fn.label({
+        attributes: {
+            className: dummies.className,
+            accessKey: 'p',
+            htmlFor: 'from-htmlFor'
+        } 
+    }).outerHTML;
+}
+
+/**
+ * @returns {String} <label class="attrCn_1 attrCn_3" accesskey="p" for="from-htmlFor"></label>
+ */
+tests.propertiesOverAttributes = () => {
+    return fn.label({
+        attributes: {
+            class: dummies.class,
+            className: dummies.className,
+            accesskey: 'a',
+            accessKey: 'p',
+            for: 'from-for',
+            htmlFor: 'from-htmlFor'
+        } 
+    }).outerHTML;
+}
+
 const cases = {
     htmlElement: "<div></div>",
     htmlElementFromString: "<div><em>Random</em> <strong><a href=\"#\">Text</a></strong></div>",
@@ -224,7 +281,11 @@ const cases = {
     fixBadAttributes: "<label class=\"class-property\" for=\"input\" tabindex=\"5\" accesskey=\"l\" style=\"border: 3px solid blue;\"></label>",
     allProps: "<div id=\"bar\" role=\"presentation\" aria-hidden=\"false\" data-foo=\"42\" style=\"border: 2px dotted green;\" class=\"foo bar\" tabindex=\"2\">random text</div>",
     select: "<div></div>",
-    selectAll: 3
+    selectAll: 3,
+    classNamesAndAttrClassName: '<div class="attrCn_1 attrCn_3 arrCN_1 arrCN_2"></div>',
+    ambigiousAttributes: '<label class="attrCls_1 attrCls_2" for="from-for" accesskey="a"></label>',
+    ambigiousProperties: '<label class="attrCn_1 attrCn_3" accesskey="p" for="from-htmlFor"></label>',
+    propertiesOverAttributes: '<label class="attrCn_1 attrCn_3" accesskey="p" for="from-htmlFor"></label>'
 }
 
 const success = {};
@@ -251,7 +312,7 @@ if (failureCnt) {
     for (let [fn, entry] of Object.entries(failures)) {
         console.log(`test.${fn}()`);
         console.info(`Exp: ${entry.expected}`);
-        console.error(`Got: ${entry.expected}\n`);
+        console.error(`Got: ${entry.result}\n`);
     }
 }
 
