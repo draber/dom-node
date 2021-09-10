@@ -16,10 +16,10 @@ npm i fancy-node
 import fn from 'fancy-node'; 
 
 // server-side
-import fn from 'fancy-node/server.js';
-// alternatively: const fn = require('fancy-node/server')
+import fn from 'fancy-node/src/server.js';
+// alternatively: const fn = require('fancy-node/src/server')
 ```
-`fancy-node/server.js` sets up a `jsdom` environment but other than that it's identical to the client-side version.  
+`fancy-node/src/server.js` sets up a `jsdom` environment but other than that it's identical to the client-side version.  
 
 ### Building elements
 The basic syntax is `fn.<any>()` where `<any>` is the type of element you wish to create:
