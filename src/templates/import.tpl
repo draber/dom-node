@@ -1,0 +1,1 @@
+import {{tag}} from './{{type}}/{{tag}}.js';

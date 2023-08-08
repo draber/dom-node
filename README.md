@@ -101,6 +101,8 @@ The following mapping lists the ambiguous cases:
 | `for`             | `htmlFor`         |
 | `nomodule`        | `noModule`        |
 | `tabindex`        | `tabIndex`        |
+| `colspan`         | `colSpan`         |
+| `rowspan`         | `rowSpan`         |
 
 _Note: [jsdom doesn't support `contentEditable`](https://github.com/jsdom/jsdom/issues/1670) (and probably other properties). This is something you need to take into account when using this package to build HTML on the server!_
 
@@ -217,3 +219,7 @@ fn.waitFor('li.bar', ul) // scope is optional
     })
 // -> waits for `<li class="bar"> to be present before doing magic
 ```
+
+
+## Build
+The two reference files under `src/elements/listing` are built with [MDN Tag Collector](https://github.com/draber/mdn-tag-collector.git).

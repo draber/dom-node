@@ -1,9 +1,11 @@
 {
   "name": "fancy-node",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "Create and retrieve DOM nodes conveniently",
   "scripts": {
-    "test": "node tests/index.js"
+    "test": "node tests/index.js",
+    "docs": "jsdoc -c ./jsdoc.json",
+    "build": "node  --experimental-json-modules --no-warnings ./src/builder"
   },
   "main": "src",
   "repository": {
@@ -20,12 +22,15 @@
     "jsdom",
     "HTML Elements",
     "SVG Elements",
-    "Element builder",
-    "HTML"
+    "Element Builder",
+    "HTML",
+    "SVG"
   ],
   "homepage": "https://github.com/draber/fancy-node#readme",
   "devDependencies": {
-    "a-nicer-console": "^1.0.0"
+    "a-nicer-console": "^1.0.0",
+    "fs-extra": "^10.1.0",
+    "minami": "^1.2.3"
   },
   "dependencies": {
     "global-jsdom": "^8.2.0"

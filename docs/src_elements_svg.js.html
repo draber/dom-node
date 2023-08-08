@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>src/elements/svg.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="HTML.html">HTML</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h2">h2</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h3">h3</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h4">h4</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h5">h5</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h6">h6</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="SVG.html">SVG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.line">line</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.polygon">polygon</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.polyline">polyline</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#$">$</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#$$">$$</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#cast">cast</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#dash">dash</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#obj">obj</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/elements/svg.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import a from './svg/a.js';
+import animate from './svg/animate.js';
+import animateMotion from './svg/animateMotion.js';
+import animateTransform from './svg/animateTransform.js';
+import circle from './svg/circle.js';
+import clipPath from './svg/clipPath.js';
+import defs from './svg/defs.js';
+import desc from './svg/desc.js';
+import discard from './svg/discard.js';
+import ellipse from './svg/ellipse.js';
+import feBlend from './svg/feBlend.js';
+import feColorMatrix from './svg/feColorMatrix.js';
+import feComponentTransfer from './svg/feComponentTransfer.js';
+import feComposite from './svg/feComposite.js';
+import feConvolveMatrix from './svg/feConvolveMatrix.js';
+import feDiffuseLighting from './svg/feDiffuseLighting.js';
+import feDisplacementMap from './svg/feDisplacementMap.js';
+import feDistantLight from './svg/feDistantLight.js';
+import feDropShadow from './svg/feDropShadow.js';
+import feFlood from './svg/feFlood.js';
+import feFuncA from './svg/feFuncA.js';
+import feFuncB from './svg/feFuncB.js';
+import feFuncG from './svg/feFuncG.js';
+import feFuncR from './svg/feFuncR.js';
+import feGaussianBlur from './svg/feGaussianBlur.js';
+import feImage from './svg/feImage.js';
+import feMerge from './svg/feMerge.js';
+import feMergeNode from './svg/feMergeNode.js';
+import feMorphology from './svg/feMorphology.js';
+import feOffset from './svg/feOffset.js';
+import fePointLight from './svg/fePointLight.js';
+import feSpecularLighting from './svg/feSpecularLighting.js';
+import feSpotLight from './svg/feSpotLight.js';
+import feTile from './svg/feTile.js';
+import feTurbulence from './svg/feTurbulence.js';
+import filter from './svg/filter.js';
+import foreignObject from './svg/foreignObject.js';
+import g from './svg/g.js';
+import glyph from './svg/glyph.js';
+import image from './svg/image.js';
+import line from './svg/line.js';
+import linearGradient from './svg/linearGradient.js';
+import marker from './svg/marker.js';
+import mask from './svg/mask.js';
+import metadata from './svg/metadata.js';
+import mpath from './svg/mpath.js';
+import path from './svg/path.js';
+import pattern from './svg/pattern.js';
+import polygon from './svg/polygon.js';
+import polyline from './svg/polyline.js';
+import radialGradient from './svg/radialGradient.js';
+import rect from './svg/rect.js';
+import script from './svg/script.js';
+import set from './svg/set.js';
+import stop from './svg/stop.js';
+import style from './svg/style.js';
+import svg from './svg/svg.js';
+import _switch from './svg/_switch.js';
+import symbol from './svg/symbol.js';
+import text from './svg/text.js';
+import textPath from './svg/textPath.js';
+import title from './svg/title.js';
+import tref from './svg/tref.js';
+import tspan from './svg/tspan.js';
+import use from './svg/use.js';
+import view from './svg/view.js';
+/** @namespace SVG */
+
+
+export default {
+    a,
+    animate,
+    animateMotion,
+    animateTransform,
+    circle,
+    clipPath,
+    defs,
+    desc,
+    discard,
+    ellipse,
+    feBlend,
+    feColorMatrix,
+    feComponentTransfer,
+    feComposite,
+    feConvolveMatrix,
+    feDiffuseLighting,
+    feDisplacementMap,
+    feDistantLight,
+    feDropShadow,
+    feFlood,
+    feFuncA,
+    feFuncB,
+    feFuncG,
+    feFuncR,
+    feGaussianBlur,
+    feImage,
+    feMerge,
+    feMergeNode,
+    feMorphology,
+    feOffset,
+    fePointLight,
+    feSpecularLighting,
+    feSpotLight,
+    feTile,
+    feTurbulence,
+    filter,
+    foreignObject,
+    g,
+    glyph,
+    image,
+    line,
+    linearGradient,
+    marker,
+    mask,
+    metadata,
+    mpath,
+    path,
+    pattern,
+    polygon,
+    polyline,
+    radialGradient,
+    rect,
+    script,
+    set,
+    stop,
+    style,
+    svg,
+    _switch,
+    symbol,
+    text,
+    textPath,
+    title,
+    tref,
+    tspan,
+    use,
+    view
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu May 12 2022 21:04:50 GMT+0200 (Central European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

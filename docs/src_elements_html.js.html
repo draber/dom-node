@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>src/elements/html.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="HTML.html">HTML</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h2">h2</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h3">h3</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h4">h4</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h5">h5</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.h6">h6</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="SVG.html">SVG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.line">line</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.polygon">polygon</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SVG.html#.polyline">polyline</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#$">$</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#$$">$$</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#cast">cast</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#dash">dash</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#obj">obj</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/elements/html.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import a from './html/a.js';
+import abbr from './html/abbr.js';
+import address from './html/address.js';
+import area from './html/area.js';
+import article from './html/article.js';
+import aside from './html/aside.js';
+import audio from './html/audio.js';
+import b from './html/b.js';
+import base from './html/base.js';
+import bdi from './html/bdi.js';
+import bdo from './html/bdo.js';
+import blockquote from './html/blockquote.js';
+import body from './html/body.js';
+import br from './html/br.js';
+import button from './html/button.js';
+import canvas from './html/canvas.js';
+import caption from './html/caption.js';
+import cite from './html/cite.js';
+import code from './html/code.js';
+import col from './html/col.js';
+import colgroup from './html/colgroup.js';
+import data from './html/data.js';
+import datalist from './html/datalist.js';
+import dd from './html/dd.js';
+import del from './html/del.js';
+import details from './html/details.js';
+import dfn from './html/dfn.js';
+import dialog from './html/dialog.js';
+import div from './html/div.js';
+import dl from './html/dl.js';
+import dt from './html/dt.js';
+import em from './html/em.js';
+import embed from './html/embed.js';
+import fieldset from './html/fieldset.js';
+import figcaption from './html/figcaption.js';
+import figure from './html/figure.js';
+import footer from './html/footer.js';
+import form from './html/form.js';
+import head from './html/head.js';
+import header from './html/header.js';
+import h1 from './html/h1.js';
+import h2 from './html/h2.js';
+import h3 from './html/h3.js';
+import h4 from './html/h4.js';
+import h5 from './html/h5.js';
+import h6 from './html/h6.js';
+import hr from './html/hr.js';
+import html from './html/html.js';
+import i from './html/i.js';
+import iframe from './html/iframe.js';
+import img from './html/img.js';
+import input from './html/input.js';
+import ins from './html/ins.js';
+import kbd from './html/kbd.js';
+import label from './html/label.js';
+import legend from './html/legend.js';
+import li from './html/li.js';
+import link from './html/link.js';
+import main from './html/main.js';
+import map from './html/map.js';
+import mark from './html/mark.js';
+import menu from './html/menu.js';
+import meta from './html/meta.js';
+import meter from './html/meter.js';
+import nav from './html/nav.js';
+import noscript from './html/noscript.js';
+import object from './html/object.js';
+import ol from './html/ol.js';
+import optgroup from './html/optgroup.js';
+import option from './html/option.js';
+import output from './html/output.js';
+import p from './html/p.js';
+import picture from './html/picture.js';
+import portal from './html/portal.js';
+import pre from './html/pre.js';
+import progress from './html/progress.js';
+import q from './html/q.js';
+import rp from './html/rp.js';
+import rt from './html/rt.js';
+import ruby from './html/ruby.js';
+import s from './html/s.js';
+import samp from './html/samp.js';
+import script from './html/script.js';
+import section from './html/section.js';
+import select from './html/select.js';
+import slot from './html/slot.js';
+import small from './html/small.js';
+import source from './html/source.js';
+import span from './html/span.js';
+import strong from './html/strong.js';
+import style from './html/style.js';
+import sub from './html/sub.js';
+import summary from './html/summary.js';
+import sup from './html/sup.js';
+import table from './html/table.js';
+import tbody from './html/tbody.js';
+import td from './html/td.js';
+import template from './html/template.js';
+import textarea from './html/textarea.js';
+import tfoot from './html/tfoot.js';
+import th from './html/th.js';
+import thead from './html/thead.js';
+import time from './html/time.js';
+import title from './html/title.js';
+import tr from './html/tr.js';
+import track from './html/track.js';
+import u from './html/u.js';
+import ul from './html/ul.js';
+import _var from './html/_var.js';
+import video from './html/video.js';
+import wbr from './html/wbr.js';
+/** @namespace HTML */
+
+
+export default {
+    a,
+    abbr,
+    address,
+    area,
+    article,
+    aside,
+    audio,
+    b,
+    base,
+    bdi,
+    bdo,
+    blockquote,
+    body,
+    br,
+    button,
+    canvas,
+    caption,
+    cite,
+    code,
+    col,
+    colgroup,
+    data,
+    datalist,
+    dd,
+    del,
+    details,
+    dfn,
+    dialog,
+    div,
+    dl,
+    dt,
+    em,
+    embed,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    head,
+    header,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    html,
+    i,
+    iframe,
+    img,
+    input,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    link,
+    main,
+    map,
+    mark,
+    menu,
+    meta,
+    meter,
+    nav,
+    noscript,
+    object,
+    ol,
+    optgroup,
+    option,
+    output,
+    p,
+    picture,
+    portal,
+    pre,
+    progress,
+    q,
+    rp,
+    rt,
+    ruby,
+    s,
+    samp,
+    script,
+    section,
+    select,
+    slot,
+    small,
+    source,
+    span,
+    strong,
+    style,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    template,
+    textarea,
+    tfoot,
+    th,
+    thead,
+    time,
+    title,
+    tr,
+    track,
+    u,
+    ul,
+    _var,
+    video,
+    wbr
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu May 12 2022 21:04:50 GMT+0200 (Central European Summer Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
